@@ -32,13 +32,16 @@ let generationTimer = null;
 const prankVideos = [
     {
         src: "videos/prank1.mp4",
-        description: " },
+        description: ""
+    },
     {
         src: "videos/prank2.mp4",
-        description: "  },
+        description: ""
+    },
     {
         src: "videos/prank3.mp4",
-        description: " }
+        description: " "
+    }
 ];
 
 
