@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prank AI Video Generator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">🎬 PrankAI</div>
+        <span class="badge">FUN MODE</span>
+    </header>
+
+    <main class="container">
+
+        <section class="hero">
+            <h1>AI Image to Video</h1>
+            <p>
+                Ubah foto menjadi video dengan kekuatan AI.
+                Unggah foto, tulis imajinasimu, dan mulai berkreasi!
+            </p>
+        </section>
+
+        <section class="generator">
+
+            <div class="upload-box" id="uploadBox">
+                <input
+                    type="file"
+                    id="photoInput"
+                    accept="image/*"
+                    hidden
+                >
+
+                <div id="uploadContent">
+                    <div class="upload-icon">📸</div>
+                    <h3>Unggah Foto</h3>
+                    <p>Klik untuk memilih foto dari perangkatmu</p>
+                    <button type="button" class="secondary-btn">
+                        Pilih Foto
+                    </button>
+                </div>
+
+                <img id="photoPreview" alt="Pratinjau foto">
+            </div>
+
+            <div class="form-group">
+                <label for="prompt">Prompt Video</label>
+
+                <textarea
+                    id="prompt"
+                    placeholder="Ceritakan video yang ingin kamu buat..."
+                    rows="4"
+                ></textarea>
+            </div>
+
+            <button id="generateBtn" class="generate-btn">
+                ✨ Generate Video
+            </button>
+
+            <p class="note">
+                ⚡ Proses cepat, tanpa antrean AI!
+            </p>
+
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+                <p id="loadingText">AI sedang memproses fotomu...</p>
+                <div class="progress">
+                    <div id="progressBar"></div>
+                </div>
+            </div>
+
+            <div id="result" class="result">
+
+                <h2>🎉 Video Berhasil Dibuat!</h2>
+
+                <video
+                    id="resultVideo"
+                    controls
+                    playsinline
+                ></video>
+
+                <p id="resultDescription">
+                    Video kamu sudah siap!
+                </p>
+
+                <a
+                    id="downloadBtn"
+                    class="download-btn"
+                    download="hasil-video.mp4"
+                >
+                    ⬇️ Unduh Video
+                </a>
+
+                <button id="resetBtn" class="secondary-btn">
+                    🔄 Buat Video Lagi
+                </button>
+
+            </div>
+
+        </section>
+
+        <footer>
+            <p>© 2026 PrankAI · Dibuat untuk hiburan 😄</p>
+            <p class="disclaimer">
+                Demo hiburan. Video yang dihasilkan merupakan
+                video yang telah disiapkan sebelumnya.
+            </p>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
