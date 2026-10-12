@@ -32,15 +32,15 @@ let generationTimer = null;
 const prankVideos = [
     {
         src: "videos/prank1.mp4",
-        description: "🎉 Video pertama berhasil dibuat!"
+        description: "sepertinya prompt yg kamu masukkan kurang tepat"
     },
     {
         src: "videos/prank2.mp4",
-        description: "🤣 Kejutan! Video kedua berhasil dibuat!"
+        description: " di larang memasukkan prompt vulgar"
     },
     {
         src: "videos/prank3.mp4",
-        description: "😆 Video ketiga berhasil dibuat!"
+        description: " sepertinya kamu harus ngopi dulu biar hasilnya sesuai"
     }
 ];
 
