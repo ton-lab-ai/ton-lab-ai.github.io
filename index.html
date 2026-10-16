@@ -3,62 +3,99 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ton Lab AI Video Generator</title>
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Ton Lab AI — generator video AI dan galeri karya video AI.">
+  <title>Ton Lab AI — AI Video Studio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="header">
-    <div class="logo">🎬 Ton Lab AI</div>
-    <span class="badge">free credit ⚡100</span>
+    <a class="logo" href="#" aria-label="Ton Lab AI beranda">🎬 <span>Ton Lab AI</span></a>
+    <span class="badge">⚡ 100 free credit</span>
   </header>
 
   <main class="container">
     <section class="hero">
-      <h1>AI Image to Video</h1>
-      <p>Unggah foto, tulis imajinasimu,</p>
+      <span class="eyebrow">AI VIDEO STUDIO</span>
+      <h1>Karya AI, tanpa batas imajinasi.</h1>
+      <p>Buat video dari foto atau jelajahi kumpulan karya video AI komunitas Ton Lab.</p>
+      <nav class="quick-nav" aria-label="Navigasi halaman">
+        <a href="#generator">✨ Generator Video</a>
+        <a href="#gallery">▶ Galeri Video</a>
+      </nav>
     </section>
 
-    <section class="generator">
-      <div class="upload-box" id="uploadBox">
-        <input type="file" id="photoInput" accept="image/*" hidden>
-        <div id="uploadContent">
-          <div class="upload-icon">📸</div>
-          <h3>Unggah Foto</h3>
-          <p>Klik untuk memilih foto dari perangkatmu</p>
-          <button type="button" class="secondary-btn">Pilih Foto</button>
+    <section class="section-block" id="generator">
+      <div class="section-heading">
+        <div><span class="eyebrow">CREATE</span><h2>AI Image to Video</h2>
+        <p>Unggah foto dan tulis imajinasimu.</p></div>
+      </div>
+      <section class="generator">
+        <div class="upload-box" id="uploadBox" role="button" tabindex="0" aria-label="Pilih foto untuk generator">
+          <input type="file" id="photoInput" accept="image/*" hidden>
+          <div id="uploadContent">
+            <div class="upload-icon">📸</div>
+            <h3>Unggah Foto</h3>
+            <p>Klik untuk memilih foto dari perangkatmu</p>
+            <button type="button" class="secondary-btn" id="choosePhotoBtn">Pilih Foto</button>
+          </div>
+          <img id="photoPreview" alt="Pratinjau foto yang diunggah">
         </div>
-        <img id="photoPreview" alt="Pratinjau foto">
-      </div>
+        <div class="form-group">
+          <label for="prompt">Prompt Video</label>
+          <textarea id="prompt" placeholder="Ceritakan video yang ingin kamu buat..." rows="4"></textarea>
+        </div>
+        <button id="generateBtn" class="generate-btn">✨ Generate Video · ⚡10</button>
+        <p class="note">"This feature is not working. Please contact the developer." </p>
+        <div id="loading" class="loading" aria-live="polite">
+          <div class="spinner"></div><p id="loadingText">Sedang memproses...</p>
+          <div class="progress"><div id="progressBar"></div></div>
+        </div>
+        <div id="result" class="result">
+          <h2> Video Siap!</h2>
+          <video id="resultVideo" controls playsinline preload="metadata"></video>
+          <p id="resultDescription"></p>
+          <a id="downloadBtn" class="download-btn" download="hasil-video.mp4">⬇️ Unduh Video</a>
+          <button id="resetBtn" class="secondary-btn">🔄 Coba Lagi</button>
+          <p class="disclaimer"> .</p>
+        </div>
+      </section>
+    </section>
 
-      <div class="form-group">
-        <label for="prompt">Prompt Video</label>
-        <textarea id="prompt" placeholder="Ceritakan video yang ingin kamu buat..." rows="4"></textarea>
+    <section class="section-block gallery-section" id="gallery">
+      <div class="section-heading gallery-heading">
+        <div><span class="eyebrow">WATCH</span><h2>Galeri Karya AI</h2>
+        <p>.</p></div>
+        <span class="count-pill" id="videoCount">3 video</span>
       </div>
-
-      <button id="generateBtn" class="generate-btn">✨ Generate Video cost-⚡10</button>
-      <p class="note">⚡ free credit limited— Contact the developer for unlimited credit.</p>
-
-      <div id="loading" class="loading">
-        <div class="spinner"></div>
-        <p id="loadingText">Sedang memproses...</p>
-        <div class="progress"><div id="progressBar"></div></div>
+      <div class="gallery-tools">
+        <label class="search-box" for="gallerySearch"><span>⌕</span><input id="gallerySearch" type="search" placeholder="Cari karya video..." autocomplete="off"></label>
+        <div class="filter-row" role="group" aria-label="Filter kategori">
+          <button class="filter-btn active" data-filter="all" type="button">Semua</button>
+          <button class="filter-btn" data-filter="prank" type="button">horor</button>
+          <button class="filter-btn" data-filter="komedi" type="button">Komedi</button>
+        </div>
       </div>
-
-      <div id="result" class="result">
-        <h2>🎉 Video Siap!</h2>
-        <video id="resultVideo" controls playsinline></video>
-        <p id="resultDescription"></p>
-        <a id="downloadBtn" class="download-btn" download="hasil-video.mp4">⬇️ Unduh Video</a>
-        <button id="resetBtn" class="secondary-btn">🔄 Coba Lagi</button>
-        <p class="disclaimer"> Adult prompts are not permitted.</p>
-      </div>
+      <div class="video-grid" id="videoGrid" aria-live="polite"></div>
+      <p class="gallery-hint">.</p>
     </section>
 
     <footer>
-      <p>© 2026 Ton Lab AI ·</p>
+      <p>© 2026 Ton Lab AI · AI Video Studio</p>
+      <p>Dibuat untuk berbagi kreativitas.</p>
+      <p class="portfolio-link">🎨 Dibuat oleh <a href="https://ton.is-a.dev" target="_blank" rel="noopener noreferrer">Ton — Lihat Portofolio Saya ↗</a></p>
     </footer>
   </main>
+
+  <div class="player-modal" id="playerModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="playerTitle">
+    <div class="modal-backdrop" data-close-player></div>
+    <div class="player-dialog">
+      <div class="player-topbar"><div><span class="eyebrow">NOW PLAYING</span><h2 id="playerTitle">Karya AI</h2></div><button type="button" class="close-player" id="closePlayer" aria-label="Tutup pemutar">✕</button></div>
+      <video id="galleryPlayer" controls playsinline preload="metadata"></video>
+      <p id="playerDescription"></p>
+    </div>
+  </div>
   <script src="script.js"></script>
 </body>
-    </html>
-      
+            </html>
+            
